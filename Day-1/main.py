@@ -1,7 +1,8 @@
 from typing import TextIO, List, Tuple
 import re
 
-
+# This function here parses data into two arrays, Left Array (LA) and Right Array (RA)
+# I do this to make it easier to calculate the distance between the values of the two arrays
 def parse_data(file: TextIO) -> Tuple[List[str], List[str]]:
     LA: List[str] = []
     RA: List[str] = []
@@ -16,6 +17,8 @@ def parse_data(file: TextIO) -> Tuple[List[str], List[str]]:
 
     return LA, RA
 
+# This function here calculates the distance between the values of the two arrays
+# I sort the arrays first to make it easier to calculate the distance
 def calculate_distance(LA: List[str], RA: List[str]) -> List[int]:
     LA.sort()
     RA.sort()
@@ -29,7 +32,7 @@ def calculate_distance(LA: List[str], RA: List[str]) -> List[int]:
     
     return complete_distance
 
-
+# I do this to find the simmilarities between the two arrays and their weighted sum
 def calculate_weighted_sum(LA: List[str], RA: List[str]) -> int:
     count_RA = {}
     for num in RA:
